@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LINE-OA 关注承接与销售分配方案</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#ffffff; --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+    --marketing:#d97706; --tech:#2563eb; --ops:#7c3aed; --sales:#059669;
+    --data:#475569; --legal:#dc2626;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.7; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1040px; margin:0 auto; padding:32px 24px 80px;}
+  header.doc{background:linear-gradient(135deg,#1f2937,#111827); color:#fff; border-radius:16px; padding:36px 40px; margin-bottom:28px;}
+  header.doc h1{font-size:28px; font-weight:700; letter-spacing:.5px;}
+  header.doc .sub{margin-top:8px; font-size:15px; color:#cbd5e1;}
+  header.doc .meta{margin-top:18px; font-size:13px; color:#94a3b8; display:flex; gap:20px; flex-wrap:wrap;}
+  section{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:28px 32px; margin-bottom:24px;}
+  h2{font-size:20px; font-weight:700; margin-bottom:16px; display:flex; align-items:center; gap:10px;}
+  h2 .no{display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:8px; background:#111827; color:#fff; font-size:15px; flex:none;}
+  h3{font-size:16px; font-weight:700; margin:20px 0 10px; color:#111827;}
+  p{font-size:14.5px; color:#374151; margin-bottom:10px;}
+  ul,ol{margin:8px 0 12px 22px;}
+  li{font-size:14.5px; color:#374151; margin-bottom:6px;}
+  .lead{font-size:15px; color:#111827; background:#f0f7ff; border-left:4px solid var(--tech); border-radius:8px; padding:12px 16px; margin-bottom:16px;}
+  .warn{background:#fff7ed; border-left:4px solid var(--marketing); border-radius:8px; padding:12px 16px; margin-bottom:16px;}
+  .warn .t,.lead .t{font-weight:700; margin-bottom:4px;}
+  .legend{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0;}
+  .legend span{display:inline-flex; align-items:center; gap:6px; font-size:12.5px; padding:4px 10px; border-radius:20px; border:1px solid var(--line); background:#fafafa;}
+  .legend i{width:10px; height:10px; border-radius:3px; display:inline-block;}
+  .fig{background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px; margin:16px 0; overflow-x:auto;}
+  .figcap{font-size:13px; color:var(--muted); margin-top:6px; text-align:center;}
+  svg{display:block; margin:0 auto; max-width:100%; height:auto;}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:13.5px;}
+  th,td{border:1px solid #d1d5db; padding:9px 11px; text-align:left; vertical-align:top;}
+  thead th{background:#f3f4f6; color:#111827; font-weight:700; font-size:13px;}
+  thead th .en{display:block; font-weight:500; color:#6b7280; font-size:11px;}
+  tbody tr:nth-child(even){background:#fafafa;}
+  .tag{display:inline-block; font-size:11.5px; font-weight:600; padding:2px 8px; border-radius:6px; color:#fff; white-space:nowrap;}
+  .tag.mkt{background:var(--marketing);} .tag.tech{background:var(--tech);} .tag.ops{background:var(--ops);}
+  .tag.sales{background:var(--sales);} .tag.data{background:var(--data);} .tag.legal{background:var(--legal);}
+  .kpi-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin:16px 0;}
+  .kpi{border:1px solid var(--line); border-radius:10px; padding:16px; background:#fff;}
+  .kpi .k{font-size:12.5px; color:var(--muted); font-weight:600;}
+  .kpi .v{font-size:20px; font-weight:800; color:#111827; margin-top:6px;}
+  .kpi .d{font-size:12px; color:var(--muted); margin-top:4px;}
+  .ok{color:#059669; font-weight:600;} .pending{color:#d97706; font-weight:600;}
+  .done{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:14px 16px;margin-bottom:14px;}
+  .done .t{font-weight:700;color:#065f46;margin-bottom:4px;}
+  .todo{background:#fef2f2; border:1px solid #fecaca; border-radius:10px; padding:14px 16px; margin-bottom:14px;}
+  .todo .t{font-weight:700; color:#b91c1c; margin-bottom:4px;}
+  .note{font-size:12.5px; color:var(--muted);}
+  @media print{ body{background:#fff;} .wrap{max-width:100%; padding:0;} section{break-inside:avoid;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="doc">
+  <h1>LINE-OA 关注承接与销售分配方案</h1>
+  <div class="sub">泰国市场用户注册后的私域承接 · 自动化培育 · 分渠道销售分配</div>
+  <div class="meta">
+    <span>文档版本：v1.2（修正流程图与部门职责）</span>
+    <span>日期：2026-08-19</span>
+    <span>涉及部门：市场 · 产研 · 运营 · 销售 · 数据 · 合规</span>
+  </div>
+</header>
+
+<!-- 一、背景与目标 -->
+<section>
+  <h2><span class="no">1</span>项目背景与目标</h2>
+  <p>用户在完成注册后，我们希望将其承接进 <strong>LINE Official Account（LINE-OA）</strong> 这一私域渠道，通过 LINE-OA 的自动化能力完成「问好 → 挖需 → 简单问答 → 课前提醒 → 协助预约」，并在缺席后发起二次预约，从而替代/减轻人工外呼的重复工作，提升首节体验课（demo）出席率。</p>
+  <div class="lead"><div class="t">核心定位</div>LINE-OA 只负责「注册后 → 首节体验课出席」这一段旅程。<strong>出席即止；未出席则二次预约后结束。</strong></div>
+  <p>销售分配采用分渠道差异化策略，最终目标是 <strong>100% 直接分配</strong>，每个真人销售都拥有 LINE-OA 坐席，可与用户、官方机器人三方同时协作。</p>
+</section>
+
+<!-- 二、核心指标 -->
+<section>
+  <h2><span class="no">2</span>核心指标 / Key Metrics</h2>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="k">北极星指标 / North Star</div><div class="v">LINE-OA 关注率</div><div class="d">注册用户中关注 LINE-OA 的占比</div></div>
+    <div class="kpi"><div class="k">关注率公式 / Formula</div><div class="v">关注数 ÷ 注册数</div><div class="d">（T+N 小时内关注 LINE-OA 的用户数 ÷ 同期新增注册用户数）</div></div>
+    <div class="kpi"><div class="k">关注率目标 / Target</div><div class="v">80%+</div><div class="d">参考台湾「仅完成页曝光、无外呼」基线 80%；泰国含外呼兜底，预期 ≥80%</div></div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>指标 / Metric</th>
+        <th>定义 / Definition</th>
+        <th>口径建议 / Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>关注率 / Follow Rate</td><td>注册后 T+N 小时内关注 LINE-OA 的用户 ÷ 同期注册用户</td><td>北极星指标，目标 80%+（泰国跑 1–2 周基线后校准）</td></tr>
+      <tr><td>关注转化率 / Follow CVR</td><td>「AI 外呼引导」后成功关注数 ÷ 外呼触达数</td><td>衡量外呼场景价值</td></tr>
+      <tr><td>预约率 / Booking Rate</td><td>关注用户中完成首节体验课预约的占比</td><td>衡量 LINE-OA 培育效果</td></tr>
+      <tr><td>出席率 / Attendance Rate</td><td>预约用户中出席首节体验课的占比</td><td>衡量提醒/预约质量</td></tr>
+      <tr><td>二次预约成功率 / Re-booking Rate</td><td>缺席用户中二次预约成功的占比</td><td>衡量挽留效果</td></tr>
+    </tbody>
+  </table>
+  <p class="note">目标 80% 参考来源：台湾市场（同为 LINE 主战区），仅在注册完成页曝光 LINE-OA、无 AI 外呼情况下的关注率。泰国因叠加「AI 外呼兜底」，理论上应高于 80%，建议以 80% 为起点、跑基线后上调。</p>
+</section>
+
+<!-- 三、全景流程图 -->
+<section>
+  <h2><span class="no">3</span>端到端全景流程图 / End-to-end Flow</h2>
+  <div class="legend">
+    <span><i style="background:var(--marketing)"></i>市场 / Marketing</span>
+    <span><i style="background:var(--tech)"></i>产研 / Product&amp;Tech</span>
+    <span><i style="background:var(--ops)"></i>运营 / Operations</span>
+    <span><i style="background:var(--sales)"></i>销售 / Sales</span>
+  </div>
+  <div class="fig">
+<svg viewBox="0 0 960 1180" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#6b7280"/></marker>
+  </defs>
+
+  <rect x="340" y="20" width="280" height="56" rx="12" fill="#d97706"/>
+  <text x="480" y="43" fill="#fff" font-size="15" text-anchor="middle" font-weight="700">多渠道注册</text>
+  <text x="480" y="63" fill="#fff" font-size="12" text-anchor="middle">安卓 / iOS / Web / 广告 等</text>
+  <line x1="480" y1="76" x2="480" y2="108" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="340" y="108" width="280" height="56" rx="12" fill="#d97706"/>
+  <text x="480" y="131" fill="#fff" font-size="15" text-anchor="middle" font-weight="700">注册完成页引导关注 LINE-OA</text>
+  <text x="480" y="151" fill="#fff" font-size="12" text-anchor="middle">短链 / 二维码 / LINE ID 搜索</text>
+  <line x1="480" y1="164" x2="480" y2="196" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+
+  <polygon points="480,196 610,240 480,284 350,240" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="480" y="236" fill="#92400e" font-size="14" text-anchor="middle" font-weight="700">5 分钟后检测</text>
+  <text x="480" y="254" fill="#92400e" font-size="13" text-anchor="middle">关注状态</text>
+
+  <line x1="350" y1="240" x2="180" y2="240" stroke="#6b7280" stroke-width="2"/>
+  <text x="265" y="230" fill="#6b7280" font-size="12" text-anchor="middle">未关注</text>
+  <rect x="40" y="212" width="200" height="56" rx="12" fill="#7c3aed"/>
+  <text x="140" y="235" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">AI 外呼引导关注</text>
+  <text x="140" y="255" fill="#fff" font-size="12" text-anchor="middle">5 / 15 / 30 分钟重试</text>
+  <line x1="180" y1="240" x2="240" y2="240" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+
+  <line x1="480" y1="284" x2="480" y2="316" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="500" y="304" fill="#6b7280" font-size="12">已关注</text>
+
+  <rect x="340" y="316" width="280" height="56" rx="12" fill="#7c3aed"/>
+  <text x="480" y="339" fill="#fff" font-size="15" text-anchor="middle" font-weight="700">LINE-OA 自动化培育</text>
+  <text x="480" y="359" fill="#fff" font-size="12" text-anchor="middle">问好 → 挖需 → 问答 → 课前提醒 → 协助预约</text>
+  <line x1="480" y1="372" x2="480" y2="404" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="340" y="404" width="280" height="56" rx="12" fill="#059669"/>
+  <text x="480" y="427" fill="#fff" font-size="15" text-anchor="middle" font-weight="700">销售分配（分渠道分流）</text>
+  <text x="480" y="447" fill="#fff" font-size="12" text-anchor="middle">安卓 / 非安卓 AB 测试</text>
+  <line x1="480" y1="460" x2="480" y2="492" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+
+  <rect x="340" y="492" width="280" height="56" rx="12" fill="#059669"/>
+  <text x="480" y="515" fill="#fff" font-size="15" text-anchor="middle" font-weight="700">首节体验课（demo）</text>
+  <text x="480" y="535" fill="#fff" font-size="12" text-anchor="middle">LINE-OA 自动化 + 销售并行跟进</text>
+  <line x1="480" y1="548" x2="480" y2="580" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+
+  <polygon points="480,580 610,624 480,668 350,624" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="480" y="620" fill="#92400e" font-size="14" text-anchor="middle" font-weight="700">是否出席？</text>
+
+  <line x1="480" y1="668" x2="480" y2="700" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="502" y="688" fill="#6b7280" font-size="12">出席</text>
+  <rect x="340" y="700" width="280" height="48" rx="12" fill="#111827"/>
+  <text x="480" y="729" fill="#fff" font-size="15" text-anchor="middle" font-weight="700">LINE-OA 结束，进入后续服务</text>
+
+  <line x1="350" y1="624" x2="180" y2="624" stroke="#6b7280" stroke-width="2"/>
+  <text x="265" y="614" fill="#6b7280" font-size="12" text-anchor="middle">缺席</text>
+  <rect x="40" y="596" width="200" height="56" rx="12" fill="#7c3aed"/>
+  <text x="140" y="619" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">LINE-OA 二次预约</text>
+  <text x="140" y="639" fill="#fff" font-size="12" text-anchor="middle">（发起挽留）</text>
+  <line x1="140" y1="652" x2="140" y2="700" stroke="#6b7280" stroke-width="2" marker-end="url(#arr)"/>
+  <rect x="40" y="700" width="200" height="48" rx="12" fill="#111827"/>
+  <text x="140" y="729" fill="#fff" font-size="15" text-anchor="middle" font-weight="700">结束</text>
+
+  <text x="480" y="1120" fill="#6b7280" font-size="13" text-anchor="middle">▲ 未关注用户经 AI 外呼引导后若成功关注，回流进入「LINE-OA 自动化培育」；若仍不关注，仅计入关注率分母，不再强追。</text>
+</svg>
+  </div>
+  <p class="figcap">图 1 · 端到端全景流程图</p>
+</section>
+
+<!-- 四、分阶段流程 -->
+<section>
+  <h2><span class="no">4</span>分阶段流程详解 / Phase Detail</h2>
+
+  <h3>阶段一 · 注册承接与关注 / Registration &amp; Follow</h3>
+  <div class="fig">
+<svg viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="a2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#6b7280"/></marker></defs>
+
+  <rect x="30" y="40" width="200" height="64" rx="12" fill="#d97706"/>
+  <text x="130" y="66" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">用户注册</text>
+  <text x="130" y="86" fill="#fff" font-size="12" text-anchor="middle">多渠道（含安卓）</text>
+  <line x1="230" y1="72" x2="300" y2="72" stroke="#6b7280" stroke-width="2" marker-end="url(#a2)"/>
+
+  <rect x="300" y="40" width="220" height="64" rx="12" fill="#d97706"/>
+  <text x="410" y="62" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">完成页引导关注</text>
+  <text x="410" y="82" fill="#fff" font-size="12" text-anchor="middle">短链 / 二维码 / ID 搜索</text>
+  <line x1="520" y1="72" x2="590" y2="72" stroke="#6b7280" stroke-width="2" marker-end="url(#a2)"/>
+
+  <rect x="590" y="40" width="200" height="64" rx="12" fill="#2563eb"/>
+  <text x="690" y="62" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">等待 5 分钟</text>
+  <text x="690" y="82" fill="#fff" font-size="12" text-anchor="middle">定时任务触发</text>
+  <line x1="690" y1="104" x2="690" y2="140" stroke="#6b7280" stroke-width="2" marker-end="url(#a2)"/>
+
+  <polygon points="690,140 820,184 690,228 560,184" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="690" y="180" fill="#92400e" font-size="14" text-anchor="middle" font-weight="700">检测关注状态</text>
+  <text x="690" y="198" fill="#92400e" font-size="12" text-anchor="middle">follow webhook / ID 比对</text>
+
+  <line x1="560" y1="184" x2="300" y2="184" stroke="#6b7280" stroke-width="2"/>
+  <text x="430" y="172" fill="#6b7280" font-size="12" text-anchor="middle">未关注</text>
+  <rect x="100" y="156" width="200" height="56" rx="12" fill="#7c3aed"/>
+  <text x="200" y="179" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">AI 外呼引导关注</text>
+  <text x="200" y="199" fill="#fff" font-size="12" text-anchor="middle">自动外呼 · 发送短链</text>
+
+  <line x1="200" y1="212" x2="200" y2="240" stroke="#6b7280" stroke-width="2" marker-end="url(#a2)"/>
+  <rect x="60" y="240" width="280" height="52" rx="12" fill="#475569"/>
+  <text x="200" y="262" fill="#fff" font-size="13" text-anchor="middle" font-weight="700">未接通 → 15 / 30 分钟重试</text>
+  <text x="200" y="282" fill="#cbd5e1" font-size="11" text-anchor="middle">按渠道配置，挑高转化渠道</text>
+
+  <line x1="200" y1="292" x2="200" y2="330" stroke="#6b7280" stroke-width="2" marker-end="url(#a2)"/>
+  <rect x="60" y="330" width="280" height="56" rx="12" fill="#475569"/>
+  <text x="200" y="353" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">成功关注 → 回流培育</text>
+  <text x="200" y="373" fill="#fff" font-size="12" text-anchor="middle">未关注 → 计入分母，不再强追</text>
+
+  <line x1="690" y1="228" x2="690" y2="280" stroke="#6b7280" stroke-width="2" marker-end="url(#a2)"/>
+  <text x="710" y="250" fill="#6b7280" font-size="12">已关注</text>
+  <rect x="560" y="280" width="260" height="56" rx="12" fill="#7c3aed"/>
+  <text x="690" y="303" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">进入 LINE-OA 自动化培育</text>
+  <text x="690" y="323" fill="#fff" font-size="12" text-anchor="middle">写入关注状态 + 打标签</text>
+
+  <rect x="30" y="430" width="900" height="130" rx="10" fill="#f0f7ff" stroke="#bfdbfe"/>
+  <text x="50" y="458" fill="#1d4ed8" font-size="13" font-weight="700">关键要点 / Key Points</text>
+  <text x="50" y="482" fill="#1e40af" font-size="12.5">① 起步关注方式 = 标准三件套（短链/二维码/ID 搜索）；② 外呼为自动化 AI 外呼（非真人），按渠道配置，5 分钟未接通则 15/30 分钟重试；③ 关注率目标 80%+。</text>
+  <text x="50" y="506" fill="#1e40af" font-size="12.5">④ LINE Login 自动加好友可作为后续增强项，可进一步精确归户（userId 绑定），当前非必须。</text>
+  <text x="50" y="530" fill="#1e40af" font-size="12.5">⑤ 外呼时区规则：仅泰国时间 8:00–21:00 注册的用户触发外呼（暂定）。</text>
+</svg>
+  </div>
+  <p class="figcap">图 2 · 阶段一：注册承接与关注</p>
+
+  <h3>阶段二 · LINE-OA 自动化培育 / Automated Nurturing</h3>
+  <div class="fig">
+<svg viewBox="0 0 960 360" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#6b7280"/></marker></defs>
+  <rect x="20" y="120" width="150" height="56" rx="12" fill="#7c3aed"/>
+  <text x="95" y="143" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">自动问好</text>
+  <text x="95" y="161" fill="#fff" font-size="11" text-anchor="middle">欢迎消息 + 底部菜单</text>
+  <line x1="170" y1="148" x2="210" y2="148" stroke="#6b7280" stroke-width="2" marker-end="url(#a3)"/>
+
+  <rect x="210" y="120" width="150" height="56" rx="12" fill="#7c3aed"/>
+  <text x="285" y="143" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">挖需</text>
+  <text x="285" y="161" fill="#fff" font-size="11" text-anchor="middle">标签 + 需求采集</text>
+  <line x1="360" y1="148" x2="400" y2="148" stroke="#6b7280" stroke-width="2" marker-end="url(#a3)"/>
+
+  <rect x="400" y="120" width="150" height="56" rx="12" fill="#7c3aed"/>
+  <text x="475" y="143" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">简单问答</text>
+  <text x="475" y="161" fill="#fff" font-size="11" text-anchor="middle">关键词自动回复</text>
+  <line x1="550" y1="148" x2="590" y2="148" stroke="#6b7280" stroke-width="2" marker-end="url(#a3)"/>
+
+  <rect x="590" y="120" width="160" height="56" rx="12" fill="#7c3aed"/>
+  <text x="670" y="143" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">课前提醒</text>
+  <text x="670" y="161" fill="#fff" font-size="11" text-anchor="middle">定时/分群推送</text>
+  <line x1="750" y1="148" x2="790" y2="148" stroke="#6b7280" stroke-width="2" marker-end="url(#a3)"/>
+
+  <rect x="790" y="120" width="150" height="56" rx="12" fill="#7c3aed"/>
+  <text x="865" y="143" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">协助预约</text>
+  <text x="865" y="161" fill="#fff" font-size="11" text-anchor="middle">未预约者引导预约</text>
+
+  <rect x="20" y="240" width="940" height="90" rx="10" fill="#f0f7ff" stroke="#bfdbfe"/>
+  <text x="40" y="268" fill="#1d4ed8" font-size="13" font-weight="700">能力映射 / Capability Mapping</text>
+  <text x="40" y="292" fill="#1e40af" font-size="12.5">问好 = 自动欢迎消息 · 挖需/问答 = 机器人关键词自动回复 · 课前提醒 = 定时/分群推送 · 协助预约 = 表单/底部菜单按钮引导。</text>
+  <text x="40" y="314" fill="#1e40af" font-size="12.5">⚠️ LINE-OA 只能主动推送给「好友」，因此关注率是整个培育漏斗的入口。</text>
+</svg>
+  </div>
+  <p class="figcap">图 3 · 阶段二：LINE-OA 自动化培育</p>
+
+  <h3>阶段三 · 销售分配 / Sales Assignment（分渠道 + AB 测试）</h3>
+  <div class="fig">
+<svg viewBox="0 0 960 580" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="a4" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#6b7280"/></marker></defs>
+
+  <rect x="360" y="16" width="240" height="56" rx="12" fill="#059669"/>
+  <text x="480" y="39" fill="#fff" font-size="15" text-anchor="middle" font-weight="700">已关注用户进入分配</text>
+  <text x="480" y="59" fill="#fff" font-size="12" text-anchor="middle">按渠道分流</text>
+  <line x1="480" y1="72" x2="480" y2="84" stroke="#6b7280" stroke-width="2" marker-end="url(#a4)"/>
+
+  <polygon points="480,84 610,120 480,156 350,120" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="480" y="125" fill="#92400e" font-size="14" text-anchor="middle" font-weight="700">渠道判断</text>
+
+  <!-- 安卓 -->
+  <line x1="350" y1="120" x2="240" y2="120" stroke="#6b7280" stroke-width="2"/>
+  <text x="295" y="112" fill="#6b7280" font-size="12" text-anchor="middle">安卓</text>
+  <rect x="40" y="92" width="200" height="56" rx="12" fill="#059669"/>
+  <text x="140" y="115" fill="#fff" font-size="13.5" text-anchor="middle" font-weight="700">出席后才分配</text>
+  <text x="140" y="135" fill="#fff" font-size="11" text-anchor="middle">（质量问题，维持现状）</text>
+
+  <!-- 非安卓 -->
+  <line x1="610" y1="120" x2="700" y2="120" stroke="#6b7280" stroke-width="2"/>
+  <text x="655" y="112" fill="#6b7280" font-size="12" text-anchor="middle">非安卓</text>
+  <rect x="700" y="92" width="220" height="56" rx="12" fill="#059669"/>
+  <text x="810" y="115" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">非安卓 · AB 测试</text>
+  <text x="810" y="135" fill="#fff" font-size="11" text-anchor="middle">进入随机分流</text>
+  <line x1="810" y1="148" x2="810" y2="180" stroke="#6b7280" stroke-width="2" marker-end="url(#a4)"/>
+
+  <!-- AB 分流 -->
+  <polygon points="810,180 880,220 810,260 740,220" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="810" y="225" fill="#92400e" font-size="13" text-anchor="middle" font-weight="700">随机分流</text>
+
+  <!-- 70% -->
+  <polyline points="740,220 200,220 200,356" fill="none" stroke="#6b7280" stroke-width="2" marker-end="url(#a4)"/>
+  <text x="470" y="212" fill="#6b7280" font-size="12" text-anchor="middle">70%</text>
+  <rect x="60" y="360" width="280" height="80" rx="12" fill="#059669"/>
+  <text x="200" y="386" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">70% · 抢新形式</text>
+  <text x="200" y="408" fill="#fff" font-size="12" text-anchor="middle">销售打通号码后才分配</text>
+  <text x="200" y="428" fill="#e6f4ee" font-size="11" text-anchor="middle">（维持现有抢新机制）</text>
+
+  <!-- 30% -->
+  <polyline points="880,220 760,220 760,356" fill="none" stroke="#6b7280" stroke-width="2" marker-end="url(#a4)"/>
+  <text x="820" y="212" fill="#6b7280" font-size="12" text-anchor="middle">30%</text>
+  <rect x="620" y="360" width="280" height="80" rx="12" fill="#059669"/>
+  <text x="760" y="386" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">30% · 直接分配销售</text>
+  <text x="760" y="408" fill="#fff" font-size="12" text-anchor="middle">电话通知加 LINE-OA、留存平台</text>
+  <text x="760" y="428" fill="#e6f4ee" font-size="11" text-anchor="middle">销售用私人 LINE 手动加用户</text>
+
+  <rect x="40" y="480" width="880" height="84" rx="10" fill="#f0f7ff" stroke="#bfdbfe"/>
+  <text x="60" y="508" fill="#1d4ed8" font-size="13" font-weight="700">终局目标 / End State</text>
+  <text x="60" y="532" fill="#1e40af" font-size="12.5">100% 直接分配：每个销售拥有 LINE-OA 坐席，销售 + 用户 + 官方机器人可在 LINE-OA 上三方同时协作。</text>
+  <text x="60" y="552" fill="#1e40af" font-size="12.5">当前约束：未购买销售 LINE 坐席，且 Messaging API 已开通（手动 1:1 聊天已关闭），坐席需第三方多坐席工具实现。</text>
+</svg>
+  </div>
+  <p class="figcap">图 4 · 阶段三：销售分配（分渠道 + AB 测试）</p>
+
+  <h3>阶段四 · 出席判定与终局 / Attendance &amp; Closure</h3>
+  <div class="fig">
+<svg viewBox="0 0 960 340" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="a5" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#6b7280"/></marker></defs>
+  <rect x="360" y="30" width="240" height="56" rx="12" fill="#059669"/>
+  <text x="480" y="53" fill="#fff" font-size="15" text-anchor="middle" font-weight="700">首节体验课（demo）</text>
+  <text x="480" y="73" fill="#fff" font-size="12" text-anchor="middle">LINE-OA 自动化 + 销售并行跟进</text>
+  <line x1="480" y1="86" x2="480" y2="120" stroke="#6b7280" stroke-width="2" marker-end="url(#a5)"/>
+
+  <polygon points="480,120 610,160 480,200 350,160" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="480" y="165" fill="#92400e" font-size="14" text-anchor="middle" font-weight="700">是否出席？</text>
+
+  <line x1="480" y1="200" x2="480" y2="234" stroke="#6b7280" stroke-width="2" marker-end="url(#a5)"/>
+  <text x="502" y="222" fill="#6b7280" font-size="12">出席</text>
+  <rect x="340" y="234" width="280" height="56" rx="12" fill="#111827"/>
+  <text x="480" y="257" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">LINE-OA 结束</text>
+  <text x="480" y="277" fill="#cbd5e1" font-size="12" text-anchor="middle">转入正式课程服务流程</text>
+
+  <line x1="350" y1="160" x2="180" y2="160" stroke="#6b7280" stroke-width="2"/>
+  <text x="265" y="150" fill="#6b7280" font-size="12" text-anchor="middle">缺席</text>
+  <rect x="40" y="132" width="220" height="56" rx="12" fill="#7c3aed"/>
+  <text x="150" y="155" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">LINE-OA 二次预约</text>
+  <text x="150" y="175" fill="#fff" font-size="12" text-anchor="middle">发起挽留</text>
+  <line x1="150" y1="188" x2="150" y2="234" stroke="#6b7280" stroke-width="2" marker-end="url(#a5)"/>
+  <rect x="40" y="234" width="220" height="56" rx="12" fill="#111827"/>
+  <text x="150" y="257" fill="#fff" font-size="14" text-anchor="middle" font-weight="700">结束</text>
+  <text x="150" y="277" fill="#cbd5e1" font-size="12" text-anchor="middle">无论二次预约成否</text>
+</svg>
+  </div>
+  <p class="figcap">图 5 · 阶段四：出席判定与终局</p>
+</section>
+
+<!-- 五、LINE-OA 官方建议 -->
+<section>
+  <h2><span class="no">5</span>LINE-OA 官方建议 / Official Recommendations</h2>
+  <h3>5.1 关注方式（起步采用「标准三件套」）</h3>
+  <table>
+    <thead>
+      <tr><th>方式 / Method</th><th>说明 / Description</th><th>定位 / Position</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>加好友短链 / 二维码 / LINE ID 搜索</strong></td>
+        <td>短链 line.me/R/ti/p/@ID、lin.ee 二维码、@ID 搜索。短信/页面里只放短链+利益点，别让用户手动搜 ID。</td>
+        <td><span class="tag mkt">起步采用</span></td>
+      </tr>
+      <tr>
+        <td><strong>LINE Login + 自动加好友</strong></td>
+        <td>注册流程内一次完成「注册+关注+ID 绑定」，返回 userId 精确归户，检测更实时。</td>
+        <td><span class="tag tech">后续增强（可选）</span></td>
+      </tr>
+      <tr>
+        <td><strong>加友广告（CPF）</strong></td>
+        <td>LINE 官方广告，广告内直接放「加好友」按钮，按单次加好友成本出价。账号已认证（蓝盾），可用。</td>
+        <td><span class="tag mkt">规模化拉新（可选）</span></td>
+      </tr>
+      <tr>
+        <td><strong>通知消息（Notification Messages）</strong></td>
+        <td>用户未加好友时经手机号匹配送达（需授权+内容经 LINE 审核，仅限通知类不可广告）。</td>
+        <td><span class="ok">泰国可用（已确认）</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>5.2 如何检测关注状态</h3>
+  <ul>
+    <li><strong>Messaging API 的 follow / unfollow webhook 事件</strong>：用户加好友/删好友/解封时实时推送，<code>follow.isUnblocked</code> 可区分「首次关注」与「解除封锁」。</li>
+    <li>当前账号已开通 Messaging API，直接接入 webhook 即可；若需「精确到具体注册用户」归户，需配合 LINE Login 的 userId 绑定（三件套起步阶段可按「好友总数」粗粒度比对）。</li>
+  </ul>
+
+  <h3>5.3 关键约束（务必提前规划）</h3>
+  <div class="warn"><div class="t">⚠️ Messaging API 已开通 = 手动 1:1 聊天已关闭</div>当前账号已开通 Messaging API，意味着 LINE-OA 后台的「手动 1:1 聊天」已被永久关闭，改用 API 或官方 Manager。因此<strong>销售坐席必须通过第三方多坐席工具或 LINE「聊天进阶方案」实现</strong>，这是「100% 直接分配」终局形态的前置采购/选型项。</div>
+  <div class="warn"><div class="t">⚠️ 泰国 PDPA 合规</div>AI 外呼 + 短信 + LINE 消息均需用户同意（consent），外呼需 opt-in。详见第 7 节合规清单。</div>
+</section>
+
+<!-- 六、各部门职责 -->
+<section>
+  <h2><span class="no">6</span>各部门职责与意义 / Department Responsibilities</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:120px">部门 / Dept</th>
+        <th>要做的事 / Responsibilities</th>
+        <th>意义 / Why It Matters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="tag mkt">市场 Marketing</span></td>
+        <td>① 注册完成页「引导关注」物料与文案（短链/二维码/ID 搜索）；② 短信模板（短链+利益点）；③ 关注激励设计（如首课优惠）；④ 后续可选加友广告（CPF）。</td>
+        <td>关注率是北极星（目标 80%+），市场负责把「注册流量」高效转化为「关注流量」，是整条漏斗的入口。</td>
+      </tr>
+      <tr>
+        <td><span class="tag tech">产研 Product&amp;Tech</span></td>
+        <td>① follow/unfollow webhook 接入与 CRM 用户 ID 绑定；② 自动化机器人（问好/挖需/问答/提醒/预约表单）；③ 5 分钟定时检测 + 外呼名单生成；④ 「关注提醒」自动化 AI 外呼场景搭建（新增独立场景，非真人）；⑤ 销售坐席系统选型（因 1:1 聊天已关闭）；⑥ 后续可选 LINE Login 接入。</td>
+        <td>技术底座。webhook 让「检测关注状态」实时可用；机器人与自动化外呼让 LINE-OA 承接自动化落地；坐席选型是终局形态的前置。</td>
+      </tr>
+      <tr>
+        <td><span class="tag ops">运营 Operations</span></td>
+        <td>① 关注率与漏斗指标监控（日报/看板）；② LINE-OA 话术/问答库/底部菜单/定时推送的内容运营；③ 非安卓 30/70 AB 测试设计与效果评估；④ 自动化 AI 外呼任务编排与名单管理（按渠道配置、5→15→30 重试、8:00–21:00 注册触发）；⑤ 缺席二次预约运营策略。</td>
+        <td>把各环节「串起来」并持续优化，是关注率、出席率提升的直接负责人。</td>
+      </tr>
+      <tr>
+        <td><span class="tag sales">销售 Sales</span></td>
+        <td>① 安卓：出席后承接分配；② 非安卓 30%：直接分配后电话通知用户加 LINE-OA 留存平台 + 销售私人 LINE 手动加用户；③ 非安卓 70%：抢新、打通号码后分配；④ 首节体验课出席跟进与转化（30% 直接分配组：销售与 LINE-OA 并行跟进）。终局：持有 LINE-OA 坐席与用户+机器人三方协作。</td>
+        <td>最终转化与签单。分配策略差异本质是「线索质量 vs 销售产能」的平衡，AB 测试用于验证哪种方式 ROI 更高。</td>
+      </tr>
+      <tr>
+        <td><span class="tag data">数据 Data</span></td>
+        <td>① 关注率等指标埋点与口径定义；② 注册→关注→预约→出席→缺席 全漏斗看板；③ AB 测试显著性分析与归因；④ 分渠道关注率与外呼重试效果分析。</td>
+        <td>用数据验证「直接分配 vs 抢新」孰优，为 100% 直接分配决策提供依据。</td>
+      </tr>
+      <tr>
+        <td><span class="tag legal">合规/法务 Legal</span></td>
+        <td>① 泰国 PDPA 合规（AI 外呼 opt-in、短信/LINE 消息 consent、隐私告知）；② LINE 通知消息内容审核配合；③ 数据跨境与存储合规。</td>
+        <td>AI 外呼 + 多渠道触达是强监管场景，合规是「能上线」的前提，避免处罚与品牌风险。</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 七、前置条件与合规清单 -->
+<section>
+  <h2><span class="no">7</span>前置条件与合规清单 / Prerequisites &amp; Compliance</h2>
+  <h3>7.1 前置条件（产研侧）</h3>
+  <table>
+    <thead><tr><th>事项 / Item</th><th>状态 / Status</th><th>说明 / Note</th></tr></thead>
+    <tbody>
+      <tr><td>LINE OA 账号开通 + 企业认证（蓝盾）</td><td><span class="ok">已完成</span></td><td>加友广告（CPF）已可用</td></tr>
+      <tr><td>Messaging API 开通</td><td><span class="ok">已完成</span></td><td>⚠️ 手动 1:1 聊天已关闭，坐席需第三方工具/聊天进阶方案</td></tr>
+      <tr><td>「关注提醒」自动化 AI 外呼场景（添加 LINE-OA）</td><td><span class="pending">未开始</span></td><td>新增独立场景，非真人；5→15→30 重试、8:00–21:00 注册触发</td></tr>
+      <tr><td>follow/unfollow webhook 接入</td><td><span class="pending">待开发</span></td><td>关注状态实时检测 + CRM 归户</td></tr>
+      <tr><td>自动化机器人 + 预约表单</td><td><span class="pending">待开发</span></td><td>问好/挖需/问答/提醒/协助预约</td></tr>
+      <tr><td>销售 LINE 坐席</td><td><span class="pending">未购买</span></td><td>终局形态前置，当前用「电话+私人 LINE」过渡</td></tr>
+    </tbody>
+  </table>
+  <h3>7.2 合规清单（合规/法务侧）</h3>
+  <ul>
+    <li>AI 外呼 opt-in：注册时取得用户同意接收电话的授权；</li>
+    <li>短信 / LINE 消息 consent：明确告知用途并留存同意记录；</li>
+    <li>PDPA：泰国个人数据保护法下的数据收集、存储、跨境与删除义务；</li>
+    <li>LINE 通知消息：内容需经 LINE 审核，仅限通知类不可广告。</li>
+  </ul>
+</section>
+
+<!-- 八、风险与待确认 -->
+<section>
+  <h2><span class="no">8</span>风险与待确认事项 / Risks &amp; Open Items</h2>
+  <div class="done"><div class="t">已确认 / Confirmed</div>
+    <ul style="margin-bottom:0">
+      <li>关注方式起步 = 标准三件套（短链/二维码/ID 搜索）</li>
+      <li>关注率目标 = 80%+（参考台湾仅完成页曝光、无外呼基线）</li>
+      <li>LINE OA 已认证蓝盾 + 已开通 Messaging API</li>
+      <li>30% 直接分配触达 = 电话通知加 LINE-OA 留存平台 + 销售私人 LINE 手动加</li>
+      <li>外呼口径 = 按渠道配置挑高转化渠道，5→15→30 分钟重试（自动化 AI 外呼，非真人）</li>
+      <li>LINE 通知消息泰国可用 = 确定可用</li>
+      <li>外呼时区规则 = 仅泰国时间 8:00–21:00 注册的用户触发外呼（暂定）</li>
+    </ul>
+  </div>
+  <div class="todo"><div class="t">待办 / Action Items</div>
+    <ul style="margin-bottom:0">
+      <li><strong>销售坐席选型（最关键）</strong>：Messaging API 已开通导致 1:1 聊天关闭，需产研尽快选型第三方多坐席工具或 LINE「聊天进阶方案」，这是「100% 直接分配」的关键前置。</li>
+      <li><strong>「关注提醒」AI 外呼场景搭建</strong>：该场景尚未开始（7.1 已列「未开始」），需产研立项。</li>
+    </ul>
+  </div>
+  <h3>主要风险</h3>
+  <table>
+    <thead><tr><th>风险 / Risk</th><th>影响 / Impact</th><th>应对 / Mitigation</th></tr></thead>
+    <tbody>
+      <tr><td>Messaging API 已关闭 1:1 聊天</td><td>销售坐席无法原生实现</td><td>提前选型多坐席工具/聊天进阶方案（当前已是既成事实，需尽快立项）</td></tr>
+      <tr><td>关注率不达 80%</td><td>后续培育漏斗受限</td><td>市场强引导 + 自动化外呼兜底（5→15→30 重试）+ 加友广告组合</td></tr>
+      <tr><td>PDPA 违规</td><td>处罚与品牌风险</td><td>上线前合规评审，外呼/消息 consent 落地</td></tr>
+      <tr><td>AB 测试无显著差异</td><td>无法支撑 100% 直接分配决策</td><td>保证样本量、控制混淆变量、拉长观察周期</td></tr>
+      <tr><td>三件套归户粒度不足</td><td>无法精确判断「谁」关注了</td><td>短期按好友总数粗粒度比对，中期上 LINE Login 精确归户</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<p class="note" style="text-align:center;margin-top:8px">LINE-OA 关注承接与销售分配方案 · v1.2 · 生成于 2026-08-19</p>
+
+</div>
+</body>
+</html>
