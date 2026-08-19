@@ -1,0 +1,5 @@
+# WorkBuddy 项目数据目录（不提交）
+.workbuddy/
+
+# macOS
+.DS_Store
